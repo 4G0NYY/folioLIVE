@@ -263,8 +263,8 @@ const openSource = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle: "Discuss a project or just want to say hi? My Inbox is open for all, I'm afraid I can't guarantee a response though.",
-  discord: "hardtruth",
+  subtitle: "I'm most often online on Discord, so your chance of me seeing your message is the highest there. My Discord is hardtruth",
+  number: "+41 69 420 69 69",
   email_address: "service@agony.ch"
 };
 
