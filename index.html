@@ -1,209 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FolioLIVE - Another Clean Portfolio</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>4G0NYY's Folio</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="2.png" type="image/png" sizes="16x16">
 
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- bootstrap icons css -->
-    <link
-      rel="stylesheet"
-      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
-    />
-    <!-- custom css -->
-    <link rel="stylesheet" href="./style/style.css" />
-    <!-- custom js -->
-    <script type="module" defer src="./scripts/app.js"></script>
-  </head>
-  <body>
-    <!-- navbar start -->
-    <nav class="navbar">
-      <div class="container">
-        <a href="/" class="navbar_brand">FolioLIVE</a>
-        <button
-          title="Open Menu"
-          type="button"
-          class="navbar_toggler"
-          id="menuToggler"
-        >
-          <i class="bi bi-list"></i>
-        </button>
-        <ul class="navbar_links" id="mobileMenu">
-          <li><a href="/#home">Home</a></li>
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#portfolio">Projects</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- navbar end -->
+</head>
 
-    <!-- hero section start -->
-    <header id="home" class="hero scroll-mt-10">
-      <div class="container">
-        <!-- text content -->
-        <div class="hero_content">
-          <h2 class="hero_title">Software/Hardware-Engineer, Blockchain enthusiast <br />And Developer</h2>
-          <p class="hero_text">
-            Hi, I'm 4G0NYY, an internet geek and <br />Developer from
-            Zürich, Switzerland.
-          </p>
-          <div class="hero_links">
-            <a href="https://github.com/4G0NYY" target="_blank">
-              <i class="bi bi-github"></i>
-          </div>
-        </div>
+<body>
+  <audio src="Surfaces - Sunday Best [Official Audio].mp3" autoplay="" loop=""></audio>
+  <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+  
+  
+  
+</body>
 
-        <!-- avatar -->
-        <div class="hero_avatar">
-          <img src="/images/avatar/tonmoy.jpg" alt="Avatar" />
-        </div>
-      </div>
-    </header>
-    <!-- hero section end -->
+<script>
+consoleText(['Welcome, I hope you are having a good day?', 'If you find the time, check out github/4G0NYY! ', 'If you would like to get in touch, my discord is hardtruth!'], 'text',['tomato','rebeccapurple','aliceblue','purple']);
 
-    <!-- tech stack section start -->
-    <div class="tech-stack">
-      <div class="container">
-        <h2 class="tech-stack_title">Tech Stack</h2>
-        <div class="tech-stack_divider"></div>
-        <div class="tech-stack_content">
-          <div class="tech-stack_item">
-            <img src="/images/tech/html.svg" alt="HTML" class="w-[25px]" />
-          </div>
-          <div class="tech-stack_item">
-            <img src="/images/tech/css.svg" alt="CSS" class="w-[25px]" />
-          </div>
-          <div class="tech-stack_item">
-            <img
-              src="/images/tech/javascript.svg"
-              alt="JavaScript"
-              class="w-[25px]"
-            />
-          </div>
-          <div class="tech-stack_item">
-            <img
-              src="/images/tech/typescript.svg"
-              alt="TypeScript"
-              class="w-[25px]"
-            />
-          </div>
-          <div class="tech-stack_item">
-            <img src="/images/tech/react.svg" alt="Windows" class="w-[30px]" />
-          </div>
-          <div class="tech-stack_item">
-            <img src="/images/tech/nextjs.svg" alt="Linux" class="w-[30px]" />
-          </div>
-          <div class="tech-stack_item">
-            <img
-              src="/images/tech/tailwindcss.svg"
-              alt="TailwindCSS"
-              class="w-[30px]"
-            />
-          </div>
-          <div class="tech-stack_item">
-            <img src="/images/tech/sass.svg" alt="SASS" class="w-[30px]" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- tech stack section end -->
+function consoleText(words, id, colors) {
+  if (colors === undefined) colors = ['#fff'];
+  var visible = true;
+  var con = document.getElementById('console');
+  var letterCount = 1;
+  var x = 1;
+  var waiting = false;
+  var target = document.getElementById(id)
+  target.setAttribute('style', 'color:' + colors[0])
+  window.setInterval(function() {
 
-    <!-- about section start -->
-    <div id="about" class="about">
-      <div class="container section">
-        <!-- about image -->
-        <div class="about_img">
-          <img src="/images/about.webp" alt="About Me" />
-        </div>
-        <!-- about text content -->
-        <div class="about_content">
-          <h3 class="section_subtitle mb-1">About me</h3>
-          <h2 class="section_title mb-5">
-            A dedicated Front-end Developer from Sylhet Bangladesh
-          </h2>
-          <p class="about_text">
-            I am but a simple cog in an immensely huge system. I work in IT, and it's 
-            a hobby too. I love to solve complex problems. My biggest interests lay in
-            software development, networking, the blockchain and hardware engineering.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- about section end -->
+    if (letterCount === 0 && waiting === false) {
+      waiting = true;
+      target.innerHTML = words[0].substring(0, letterCount)
+      window.setTimeout(function() {
+        var usedColor = colors.shift();
+        colors.push(usedColor);
+        var usedWord = words.shift();
+        words.push(usedWord);
+        x = 1;
+        target.setAttribute('style', 'color:' + colors[0])
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+    } else if (letterCount === words[0].length + 1 && waiting === false) {
+      waiting = true;
+      window.setTimeout(function() {
+        x = -1;
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+    } else if (waiting === false) {
+      target.innerHTML = words[0].substring(0, letterCount)
+      letterCount += x;
+    }
+  }, 120)
+  window.setInterval(function() {
+    if (visible === true) {
+      con.className = 'console-underscore hidden'
+      visible = false;
 
-    <!-- portfolio section start -->
-    <div id="portfolio" class="portfolio">
-      <div class="container section">
-        <h3 class="section_subtitle mb-1">Portfolio</h3>
-        <h2 class="section_title mb-16">
-          Each project is a unique piece of development
-        </h2>
+    } else {
+      con.className = 'console-underscore'
 
+      visible = true;
+    }
+  }, 400)
+}
+</script>
 
-    <!-- contact section start -->
-    <div id="contact" class="contact bg-white">
-      <div class="container section">
-        <h3 class="section_subtitle mb-1">Contact</h3>
-        <h2 class="section_title mb-5">Don't be shy! Hit me up! 👇</h2>
-
-        <!-- contact cards -->
-        <div class="contact_cards mt-16">
-          <div class="contact_card">
-            <div class="contact_card_icon">
-              <i class="bi bi-at text-3xl md:text-4xl"></i>
-            </div>
-            <div class="contact_card_body">
-              <h2 class="contact_card_title">Email</h2>
-              <a
-                href="mailto:tonmoydeb404@gmail.com"
-                target="_blank"
-                class="contact_card_text"
-                >tonmoydeb404@gmail.com</a
-              >
-            </div>
-          </div>
-          <div class="contact_card">
-            <div class="contact_card_icon">
-              <i class="bi bi-whatsapp text-2xl md:text-3xl"></i>
-            </div>
-            <div class="contact_card_body">
-              <h2 class="contact_card_title">Whatsapp</h2>
-              <a
-                href="https://wa.me/8801571362609"
-                target="_blank"
-                class="contact_card_text"
-                >+8801571362609</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- contact section end -->
-
-    <!-- footer section start -->
-    <footer class="footer">
-      <div class="container">
-        <p class="footer_text">Copyright © 2023. All rights are reserved</p>
-
-        <div class="footer_links">
-          <a href="https://github.com/tonmoydeb404" target="_blank">
-            <i class="bi bi-github"></i>
-          </a>
-          <a href="https://linkedin.com/in/tonmoydeb" target="_blank">
-            <i class="bi bi-linkedin"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
-    <!-- footer section end -->
-  </body>
 </html>
